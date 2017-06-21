@@ -67,6 +67,7 @@ class UniversalViewerPlugin extends Omeka_Plugin_AbstractPlugin
         'universalviewer_max_dynamic_size' => 10000000,
         'universalviewer_force_https' => false,
         'universalviewer_force_strict_json' => false,
+        'universalviewer_manifest_ldn_service' => ''
     );
 
     /**

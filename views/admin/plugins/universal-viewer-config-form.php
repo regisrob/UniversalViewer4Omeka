@@ -272,4 +272,15 @@ $elements = get_table_options('Element', null, array(
             </p>
         </div>
     </div>
+    <div class="field">
+        <div class="two columns alpha">
+            <?php echo $this->formLabel('universalviewer_manifest_ldn_service', __('LDN Service URL')); ?>
+        </div>
+        <div class="inputs five columns omega">
+            <?php echo $this->formText('universalviewer_manifest_ldn_service', get_option('universalviewer_manifest_ldn_service'), null); ?>
+            <p class="explanation">
+                <?php echo __('Add to the IIIF manifests a link to a known Linked Data Notifications Inbox from which you may retrieve supplemental contents (e.g. tables of contents, transcriptions, translations, or other kinds of annotations).'); ?>
+            </p>
+        </div>
+    </div>
 </fieldset>

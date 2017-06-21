@@ -113,6 +113,19 @@ class UniversalViewer_View_Helper_IiifManifest extends Zend_View_Helper_Abstract
         }
         $manifest['description'] = $description;
 
+        $serviceLdnUrl = get_option('universalviewer_manifest_ldn_service');
+
+        if (!empty($serviceLdnUrl)) {
+            $manifestServiceLdn = array();
+            $manifestServiceLdn['@context'] = 'http://www.w3.org/ns/ldp#inbox';
+            $manifestServiceLdn['@id'] = $serviceLdnUrl."?target=".$manifest['@id'];
+            $manifestServiceLdn['profile'] = 'http://www.w3.org/ns/ldp#inbox';
+            $manifestServiceLdn['label'] = 'Linked Data Notifications inbox';
+            $manifestServiceLdn = (object) $manifestServiceLdn;
+
+            $manifest['service'] = $manifestServiceLdn;
+        }
+
         $licenseElement = get_option('universalviewer_manifest_license_element');
         if ($licenseElement) {
             $license = metadata($item, json_decode($licenseElement, true));
